@@ -30,7 +30,7 @@ export default function Login() {
       email,
       password,
     })
-    router.push('/')
+    router.push('/dashboard')
     router.refresh()
   }
 
