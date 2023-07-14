@@ -1,6 +1,8 @@
 
 import Question from '@/components/Question'
+import { User } from '@supabase/auth-helpers-nextjs';
 import React from 'react'
+
 
 export default function Questions() {
    

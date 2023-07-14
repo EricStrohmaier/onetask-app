@@ -1,17 +1,35 @@
 "use client"
 import React, { ChangeEvent, useState,MouseEvent, useEffect  } from 'react'
 import { questionsObject } from "../app/data";
-import { supabase } from '@/app/supabase/supabaseclient';
+import { supabaseClient } from '@/app/supabase/supabaseClient';
 import { useRouter } from 'next/navigation';
+// import {  createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+// import { cookies } from 'next/headers'
 
 
-export default function Question() {
+// const supabase = createServerComponentClient({ cookies })
+
+
+
+
+export default async function Question() {
+  
+// const {
+//   data: { user },
+// } = await supabase.auth.getUser()
+
 
     const router = useRouter();  
     const { questions } = questionsObject;
    
-     //Get Questions depennding on the Day
-     const getActiveQuestion = () => {
+      // Check if user has answered the questions before
+      // user ? 
+      const hasUserAnsweredQuestions = true; 
+      // Get Questions depending on the Day
+      const getActiveQuestion = () => {
+        if (!hasUserAnsweredQuestions) {
+          return 0; // Start from the first question if user has not answered before
+        }
         
       const today = new Date();
       // const dayOfWeek = today.getDay();
@@ -38,7 +56,7 @@ export default function Question() {
     const [isFinished, setIsFinished] = useState(false);
     const [activeQuestion, setActiveQuestion] = useState(getActiveQuestion());
         
-    const { id, title, question} = questions[activeQuestion];
+    const { id } = questions[activeQuestion];
 
     const getAnswerInput = async (e: ChangeEvent<HTMLInputElement>) => {
         const answer = e.target.value;
@@ -49,7 +67,7 @@ export default function Question() {
       const nextQuestion = async (e: MouseEvent<HTMLButtonElement>) => {
         const answer = e.currentTarget.value;
         try {
-            const { data, error } = await supabase.from("one-task").insert([
+            const { data, error } = await supabaseClient.from("one-task").insert([
               {
                 id_number: id,
                 answer: answer,
@@ -73,7 +91,7 @@ export default function Question() {
       
       useEffect(() => {
         if (isFinished) {
-         
+
           router.push("/dashboard");
         }
       }, [isFinished,router]);
@@ -93,11 +111,11 @@ export default function Question() {
             placeholder="Your Awnser" /> 
         
         {checked ? (
-              <button  value={inputAnswer} onClick={nextQuestion}  className='p-1 m-2 rounded-lg bg-blue-200'>
+              <button  value={inputAnswer} onClick={nextQuestion}  className='p-1 m-2 rounded-lg bg-blue-500'>
                 {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
               </button>
             ) : (
-              <button  value={inputAnswer} onClick={nextQuestion} disabled className='p-1 m-2 rounded-lg bg-blue-200 disabled'>
+              <button  value={inputAnswer} onClick={nextQuestion} disabled className='p-1 m-2 rounded-lg bg-blue-500 disabled'>
           
                 {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
               </button>

@@ -35,6 +35,7 @@ export default function Login() {
   }
 
   return (
+<>
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
       <Link
         href="/"
@@ -89,7 +90,7 @@ export default function Login() {
           />
           {view === 'sign-in' && (
             <>
-              <button className="bg-green-700 rounded px-4 py-2 text-white mb-6">
+              <button className="bg-gray-500 rounded px-4 py-2 text-white mb-6">
                 Sign In
               </button>
               <p className="text-sm text-center">
@@ -105,7 +106,7 @@ export default function Login() {
           )}
           {view === 'sign-up' && (
             <>
-              <button className="bg-green-700 rounded px-4 py-2 text-white mb-6">
+              <button className="bg-gray-500 rounded px-4 py-2 text-white mb-6">
                 Sign Up
               </button>
               <p className="text-sm text-center">
@@ -121,6 +122,10 @@ export default function Login() {
           )}
         </form>
       )}
+     
     </div>
+  
+    </>
+   
   )
 }
