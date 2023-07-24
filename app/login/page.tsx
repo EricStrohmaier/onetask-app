@@ -2,15 +2,16 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import Link from 'next/link'
+import { useSupabase } from '@/app/spabase-provider'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [view, setView] = useState('sign-in')
+  const {supabase} = useSupabase();
   const router = useRouter()
-  const supabase = createClientComponentClient()
+
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

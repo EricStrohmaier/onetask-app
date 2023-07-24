@@ -8,12 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        btn: {
-          background: 'hsl(var(--btn-background))',
-          'background-hover': 'hsl(var(--btn-background-hover))',
+        'text': 'rgb(3, 13, 42)',
+        'background': 'rgb(234, 238, 253)',
+        'bluegray': '#d0dafb',
+        'primary': 'rgb(247, 226, 156)',
+        'secondary': 'rgb(233, 250, 189)',
+        'accent': 'rgb(87, 97, 133)',
+        fontFamily: {
+          poppins: ["Poppins", "sans-serif"],
         },
+      },
+      screens: {
+        xs: "480px",
+        ss: "620px",
+        sm: "768px",
+        md: "1060px",
+        lg: "1200px",
+        xl: "1700px",
       },
     },
   },

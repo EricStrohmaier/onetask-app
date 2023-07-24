@@ -1,3 +1,4 @@
+import SupabaseProvider from '@/app/spabase-provider'
 import './globals.css'
 
 export const metadata = {
@@ -13,9 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="min-h-screen bg-background flex flex-col">
+        <SupabaseProvider>
+        <main className="min-h-screen flex flex-col">
           {children}
         </main>
+        </SupabaseProvider>
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import styles from '@/app/style'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
 
@@ -16,7 +17,7 @@ export default function LogoutButton() {
 
   return (
     <button
-      className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      className={`py-2 px-4 rounded-md no-underline ${styles.linkHover} `}
       onClick={signOut}
     >
       Logout

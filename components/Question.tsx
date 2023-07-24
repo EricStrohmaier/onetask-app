@@ -1,42 +1,33 @@
 "use client"
 import React, { ChangeEvent, useState,MouseEvent, useEffect  } from 'react'
-import { questionsObject } from "../app/data";
-import { supabaseClient } from '@/app/supabase/supabaseClient';
+import {  questionsObject } from "../app/data";
+
 import { useRouter } from 'next/navigation';
-// import {  createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-// import { cookies } from 'next/headers'
+import { useSupabase } from '@/app/spabase-provider';
 
-
-// const supabase = createServerComponentClient({ cookies })
-
-
-
-
-export default async function Question() {
+interface ChildComponentProps {
+  data: any;
   
-// const {
-//   data: { user },
-// } = await supabase.auth.getUser()
+}
 
-
+const Question: React.FC<ChildComponentProps> = ({data}) => {
+  
+    const {supabase}= useSupabase()
     const router = useRouter();  
     const { questions } = questionsObject;
-   
       // Check if user has answered the questions before
-      // user ? 
-      const hasUserAnsweredQuestions = true; 
-      // Get Questions depending on the Day
+ 
       const getActiveQuestion = () => {
-        if (!hasUserAnsweredQuestions) {
+        if (data?.length === 0 ) {
           return 0; // Start from the first question if user has not answered before
         }
         
       const today = new Date();
-      // const dayOfWeek = today.getDay();
+
       const endOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
       const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
       const endOfYear = new Date(today.getFullYear()+1,0,0);
-
+     // Get Questions depending on the Day
       if (today.getTime() === endOfYear.getTime()) {
          return 0;
       } else if (today.getDate() === endOfMonth.getDate()) {
@@ -51,14 +42,14 @@ export default async function Question() {
     }
 
     //now i can use activeQuestion and function in my frontend
-    const [inputAnswer, setInputAnswer] = useState('');
+    const [inputAnswer, setInputAnswer] = useState(''); 
     const [checked, setChecked] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
     const [activeQuestion, setActiveQuestion] = useState(getActiveQuestion());
         
     const { id } = questions[activeQuestion];
 
-    const getAnswerInput = async (e: ChangeEvent<HTMLInputElement>) => {
+    const getAnswerInput = async (e: { target: { value: any; }; }) => {
         const answer = e.target.value;
         setInputAnswer(answer);
         setChecked(true);
@@ -67,7 +58,7 @@ export default async function Question() {
       const nextQuestion = async (e: MouseEvent<HTMLButtonElement>) => {
         const answer = e.currentTarget.value;
         try {
-            const { data, error } = await supabaseClient.from("one-task").insert([
+            const { data, error } = await supabase.from("one-task").insert([
               {
                 id_number: id,
                 answer: answer,
@@ -111,7 +102,7 @@ export default async function Question() {
             placeholder="Your Awnser" /> 
         
         {checked ? (
-              <button  value={inputAnswer} onClick={nextQuestion}  className='p-1 m-2 rounded-lg bg-blue-500'>
+              <button  value={inputAnswer} onClick={nextQuestion} className='p-1 m-2 rounded-lg bg-blue-500'>
                 {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
               </button>
             ) : (
@@ -125,3 +116,4 @@ export default async function Question() {
     </div>
   )
 }
+export default Question;

@@ -1,7 +1,9 @@
+
 import LogoutButton from "@/components/LogoutButton";
 import Sidebar from "@/components/Sidebar";
 import {  createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from 'next/headers'
+import Link from "next/link";
 import React from "react";
 
 const supabase = createServerComponentClient({ cookies })
@@ -15,8 +17,9 @@ export default async function RootLayout({
     const {
         data: { user },
       } = await supabase.auth.getUser()
-      
-   
+
+
+             
     return (
   
     <div className="flex h-full">
@@ -30,11 +33,21 @@ export default async function RootLayout({
                        <div>no user</div>
                      )}
           </div>    
-          <div className="flex items-center space-x-2"><LogoutButton/></div>
+          <div className="flex items-center space-x-2">
+            {user ? ( <LogoutButton/>) : (
+               <Link
+                href="/login"
+                className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+              >
+                Login
+              </Link> )}
+           </div>
         </div>
        <main className="flex-1 overflow-y-auto">
          <div className="animate-in mx-auto my-16 w-full max-w-7xl space-y-16">
-             {children}
+      {children}
+             
+        {/* <pre>{JSON.stringify(json, null ,2)}</pre> */}
          </div>  
        </main>
      </div>
