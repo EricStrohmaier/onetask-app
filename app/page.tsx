@@ -19,7 +19,7 @@ export default async function Index() {
 		cookies,
 	});
 
-	const { data } = await supabase.auth.getSession();
+	const { data: {session} } = await supabase.auth.getSession();
 
 
   return (
