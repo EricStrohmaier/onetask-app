@@ -25,6 +25,16 @@ export default function Login() {
     setView('check-email')
   }
 
+  const handleDemoSignIn = async (e: React.MouseEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    await supabase.auth.signInWithPassword({
+      email: "onetaskdemo@yopmail.com",
+      password: "demo12345",
+    })
+    router.push('/dashboard')
+    router.refresh()
+  }
+
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await supabase.auth.signInWithPassword({
@@ -64,23 +74,35 @@ export default function Login() {
           up
         </p>
       ) : (
+        <>
         <form
           className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
           onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
         >
-          <label className="text-md" htmlFor="email">
+
+            <div className='text-md my-2 relative bottom-10 bg-gray-200 rounded-3xl p-3 flex flex-col items-center text-left'>
+                <p className='font-semibold text-md my-2'>Just Looking? </p>
+                <p className='my-2 mx-2'>Sign In with the   {" "}<span onClick={handleDemoSignIn} className='font-semibold cursor-pointer bg-gray-500 text-white p-1 px-3 rounded-2xl uppercase'>demo account</span></p>
+               
+            </div>
+
+
+          <label className="text-md font-bold" htmlFor="email">
             Email
           </label>
           <input
-            className="rounded-md px-4 py-2 bg-inherit border mb-6"
+            className="rounded-md px-4 py-2 bg-inherit border "
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             placeholder="you@example.com"
           />
-          <label className="text-md" htmlFor="password">
+         
+
+          <label className="text-md font-bold" htmlFor="password">
             Password
           </label>
+         
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
             type="password"
@@ -91,7 +113,7 @@ export default function Login() {
           />
           {view === 'sign-in' && (
             <>
-              <button className="bg-gray-500 rounded px-4 py-2 text-white mb-6">
+              <button className="bg-gray-500 hover:bg-gray-400 transition duration-200 rounded px-4 py-2 text-white mb-6">
                 Sign In
               </button>
               <p className="text-sm text-center">
@@ -107,7 +129,7 @@ export default function Login() {
           )}
           {view === 'sign-up' && (
             <>
-              <button className="bg-gray-500 rounded px-4 py-2 text-white mb-6">
+              <button className="bg-gray-500 hover:bg-gray-400 transition  duration-200 rounded px-4 py-2 text-white mb-6">
                 Sign Up
               </button>
               <p className="text-sm text-center">
@@ -122,6 +144,7 @@ export default function Login() {
             </>
           )}
         </form>
+        </>
       )}
      
     </div>

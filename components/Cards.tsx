@@ -4,6 +4,7 @@ import CardDashboard from './CardDashboard';
 import { questionsObject } from '@/app/data';
 import { useSupabase } from '@/app/spabase-provider';
 import styles from '@/app/style';
+import Link from 'next/link';
 
 interface CardsProps {
   answer: string;
@@ -52,6 +53,7 @@ const Cards: FC<CardsProps> = ({  answer }) => {
   return (
       <>
         <div className={`my-1  ${styles.heading2} ${styles.flexCenter} `}>Welcome to your dashboard</div>
+      {answer.length === 0 && <div>no questions found please enter your <Link href={"/dashboard/questions"} className='bg-gray-300 rounded-2xl p-1 px-3 '> first questions </Link></div>}
         {latestEntries.map((entry, index) => (
           entry.answer !== null && (
             <CardDashboard

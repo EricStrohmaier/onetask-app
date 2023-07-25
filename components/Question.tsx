@@ -15,11 +15,12 @@ const Question: React.FC<ChildComponentProps> = ({data}) => {
     const {supabase}= useSupabase()
     const router = useRouter();  
     const { questions } = questionsObject;
-      // Check if user has answered the questions before
+  
  
       const getActiveQuestion = () => {
         if (data?.length === 0 ) {
-          return 0; // Start from the first question if user has not answered before
+
+          return 0; 
         }
         
       const today = new Date();

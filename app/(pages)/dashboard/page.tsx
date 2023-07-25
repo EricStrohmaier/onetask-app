@@ -20,6 +20,7 @@ export async function fetchSupabase(): Promise<FetchSupabaseResult> {
 export default async function Home() {
 
   const { data} = await fetchSupabase();
+ 
 
     return (
       <main className="relative max-w-5xl mx-auto text-center item-center">

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import React from "react";
+import { fetchSupabase } from "./page";
 
 
 
@@ -18,6 +19,9 @@ const supabase = createServerComponentClient({ cookies });
   if(!session.session){
     redirect('/login')
   }
+  const { data} = await fetchSupabase();
+  console.log(data?.length);
+  
   
   
 
