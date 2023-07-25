@@ -10,13 +10,13 @@ type CardDashboardProps = {
  
   };
 
-  const CardDashboard: React.FC<CardDashboardProps> = ({ title, description, answer }) => {
+  const CardDashboard: React.FC<CardDashboardProps> = ({  title, description, answer }) => {
 
    const {supabase}= useSupabase()
   
     const [editing, setEditing] = useState(false);
-    const [inputAnswer, setInputAnswer] = useState(answer?.answer || "");
-    const [done, setDone] = useState(answer?.isdone || "");
+    const [inputAnswer, setInputAnswer] = useState(answer?.answer || "no answer found");
+    const [done, setDone] = useState(answer?.isdone || false);
 
 
   
@@ -53,7 +53,7 @@ type CardDashboardProps = {
     }
   
     return (
-      <div className="mt-5 mb-3 rounded-lg px-5 py-4 bg-gray-100 border border-transparent transition-colors hover:border-gray-300">
+      <div className=" mb-3 rounded-lg px-5 py-4 bg-gray-100 border border-transparent transition-colors hover:border-gray-300">
         <div className="lg:text-2xl sm:text-lg">
           <h2 className="lg:text-3xl sm:text-xl font-bold">My {title ||"Title"}</h2>
           <p className="mt-2 lg:text-xl sm:text-md">{description || "Question"}</p>

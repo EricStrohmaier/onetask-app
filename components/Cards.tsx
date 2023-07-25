@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import CardDashboard from './CardDashboard';
 import { questionsObject } from '@/app/data';
 import { useSupabase } from '@/app/spabase-provider';
+import styles from '@/app/style';
 
 interface CardsProps {
   answer: string;
@@ -14,6 +15,7 @@ const Cards: FC<CardsProps> = ({  answer }) => {
   const questionData = questions.map(({ id, question, title }) => ({ question, id, title }));
   const [latestEntries, setLatestEntries] = useState<{question: any; title: string; answer: any; }[]>([]);
   const {supabase} = useSupabase();
+
 
   useEffect(() => {
     async function fetchData() {
@@ -48,18 +50,19 @@ const Cards: FC<CardsProps> = ({  answer }) => {
   }, []);
 
   return (
-    <div>
-       {latestEntries.map((entry, index) => (
-            entry.answer !== null && (
-              <CardDashboard
-             key={index}
-             title={entry.title}
-             description={entry.question}
-             answer={entry.answer}        
-                   />
-                )
-            ))}
-    </div>
+      <>
+        <div className={`my-1  ${styles.heading2} ${styles.flexCenter} `}>Welcome to your dashboard</div>
+        {latestEntries.map((entry, index) => (
+          entry.answer !== null && (
+            <CardDashboard
+              key={index}
+              title={entry.title}
+              description={entry.question}
+              answer={entry.answer}        
+            />
+          )
+        ))}
+      </>  
   );
 };
 

@@ -20,7 +20,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
   //  console.log(data);
   
     return (
-      <main className="relative max-w-5xl mx-auto pt-12 sm:pt-12 lg:pt-12 text-center item-center">
+      <main className="relative max-w-5xl mx-auto text-center item-center">
           <DataCard json={data}/>
       </main>
   );

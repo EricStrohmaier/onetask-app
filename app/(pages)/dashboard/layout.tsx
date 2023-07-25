@@ -27,10 +27,10 @@ export default async function RootLayout({
        <div className="flex flex-col flex-1 w-full overflow-x-hidden h-screen">
         <div className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-gray-300 ">
           <div className="ml-2 flex items-center text-sm">
-            	{user ? (
-                    <div> Hey, {user.email}!</div>
-                     ): (
-                       <div>no user</div>
+              {user ? (
+                <div> Hey, {user.email}!</div>
+                  ): (
+                    <div>no user</div>
                      )}
           </div>    
           <div className="flex items-center space-x-2">
@@ -40,14 +40,12 @@ export default async function RootLayout({
                 className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
               >
                 Login
-              </Link> )}
+              </Link>)}
            </div>
         </div>
        <main className="flex-1 overflow-y-auto">
-         <div className="animate-in mx-auto my-16 w-full max-w-7xl space-y-16">
-      {children}
-             
-        {/* <pre>{JSON.stringify(json, null ,2)}</pre> */}
+         <div className="animate-in mx-auto my-5 w-full max-w-7xl p-1 space-y-5">
+          {children}
          </div>  
        </main>
      </div>
