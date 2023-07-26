@@ -15,6 +15,7 @@ const styles = {
     marginY: "sm:my-16 my-6",
 
     linkHover: "bg-bluegray hover:bg-opacity-75 transition duration-100"
+    
   };
   
   export const layout = {

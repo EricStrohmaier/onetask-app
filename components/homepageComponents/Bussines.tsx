@@ -14,7 +14,7 @@ export interface FeaturedCardProps {
   
 
   const FeatureCard: React.FC<FeaturedCardProps> = ({ icon, title, content, index }) => (
-  <div className={`flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} bg-bluegray`}>
+  <div className={`z-20 flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} bg-bluegray`}>
     <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-accent`}>
       <div className="w-[50%] h-[50%] object-contain bg-primary rounded-tr-full " ></div>
     </div>
