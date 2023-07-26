@@ -7,7 +7,7 @@ interface StatsProps {
 }
 //make user stats    if user is sign in    how many question he answerd how many he has completed and his one year goal ?? 
 const Stats: FC<StatsProps> = ({}) => {
-  return  <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6`}>
+  return  <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6 z-20`}>
   {stats.map((stat) => (
     <div key={stat.id} className={`flex-1 flex justify-start items-center flex-row m-3`} >
       <h4 className="font-poppins font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] ">

@@ -32,6 +32,21 @@
     transform: translateY(0);
   }
 }
+.gradientBg {
+  position: absolute;
+  z-index: 0;
+}
+
+/* Add the rotation animation */
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(12deg); /* You can adjust the rotation angle here */
+  }
+}
+
 
 /* 
 .blue__gradient {

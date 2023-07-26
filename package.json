@@ -9,6 +9,7 @@
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
     "encoding": "^0.1.13",
+    "framer-motion": "^10.13.1",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
