@@ -1,4 +1,6 @@
-import styles from '@/app/style'
+import styles, { layout } from '@/app/style'
+import { task } from '@/assets'
+import Image from 'next/image'
 import React from 'react'
 
 export default function Hero() {
@@ -19,7 +21,12 @@ export default function Hero() {
         annual fees.
       </p>
     </div>
-
+    <div className='border-2 border-black w-fit h-fit'>
+      <div className={`${styles.flexCenter} w-1/2 h-1/2`}>
+        <Image src={task} alt={'task'}/>
+      </div>
+     
+    </div>
 
  
   </section>
