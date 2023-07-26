@@ -43,8 +43,8 @@ const supabase = createServerComponentClient({ cookies });
             )}
           </div>
         </div>
-        <main className="flex-1 overflow-y-auto">
-          <div className="animate-in mx-auto my-5 w-full max-w-7xl p-1 space-y-5">
+        <main className="flex-1 overflow-y-auto ">
+          <div className="animate-in mx-auto my-1 w-full max-w-7xl p-1 space-y-5 ">
             {children}
           </div>
         </main>
