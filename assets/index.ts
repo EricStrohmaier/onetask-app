@@ -14,6 +14,7 @@ import bookmark from "./bookmark.svg";
 import book from "./book-square.svg";
 import rotateCube from "./3d-rotate-cube.svg";
 import setting from "./setting.svg"
+import task from "./task.svg"
 
 export {
     menu,
@@ -32,4 +33,5 @@ export {
     book,
     rotateCube,
     setting,
+    task,
 }
