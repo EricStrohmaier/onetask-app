@@ -82,7 +82,7 @@ export default function Login() {
 
             <div className='text-md my-2 relative bottom-10 bg-gray-200 rounded-3xl p-3 flex flex-col items-center text-left'>
                 <p className='font-semibold text-md my-2'>Just Looking? </p>
-                <p className='my-2 mx-2'>Sign In with the   {" "}<span onClick={handleDemoSignIn} className='font-semibold cursor-pointer bg-gray-500 text-white p-1 px-3 rounded-2xl uppercase'>demo account</span></p>
+                <p className='my-2 mx-2'>Log In with the   {" "}<span onClick={handleDemoSignIn} className='font-semibold cursor-pointer bg-gray-500 text-white p-1 px-3 rounded-2xl uppercase'>demo account</span></p>
                
             </div>
 
