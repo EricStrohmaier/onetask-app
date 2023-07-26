@@ -24,10 +24,10 @@ export default function Hero() {
        Goal Attainment, and Unleashing Your True Potential!"
       </p>
     </div>
-    <div className='w-fit h-fit flex justify-center items-center'>
+    <div className='w-fit h-fit flex justify-end items-center xl:px-0 sm:px-16 px-6'>
   <div className={`w-1/2 h-1/2 bg-bluegray rounded-[120px] p-5 `}>
    
-    <Image className='w-full h-full object-cover' src={task} alt={'task'} />
+    <Image className='w-full h-full object-cover ' src={task} alt={'task'} />
   </div>
 </div>
 
