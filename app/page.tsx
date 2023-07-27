@@ -38,7 +38,7 @@ export default async function Index() {
     
     <div className={`bg-background ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        <Stats/>
+        <Stats data={null}/>
         <Business/>
         <Billing/>
         <CardDeal/>
