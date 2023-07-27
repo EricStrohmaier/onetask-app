@@ -23,13 +23,11 @@ const Billing = () => (
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Easily control your <br className="sm:block hidden" /> billing &
-        invoicing
+      Alignment with Goals
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio
-        aenean neque. Fusce ipsum orci rhoncus aliporttitor integer platea
-        placerat.
+      Align your actions with your long-term goals and vision.
+       By constantly asking yourself what the ONE Thing is that will make the biggest difference, you ensure that you stay on track toward your ultimate objectives.
       </p>
 
       {/* <div className="flex flex-row flex-wrap sm:mt-10 mt-6">
