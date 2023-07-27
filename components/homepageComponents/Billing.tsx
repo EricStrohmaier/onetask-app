@@ -1,12 +1,19 @@
 import styles, { layout } from "@/app/style";
+import { homewifi } from "@/assets";
+import Image from "next/image";
 
 
 
 const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={`${layout.sectionImgReverse}`}>
-    <div className="w-[100%] h-[100%] relative z-[5] bg-bluegray rounded-3xl"></div>
-      {/* <img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" /> */}
+    <div className={`w-full h-full relative z-[5] ${styles.flexCenter}`}>
+      <div className={`w-2/3 h-fit  bg-bluegray rounded-[120px] ${styles.flexCenter}`}>
+        <Image  className={`w-1/2 h-1/2   ${styles.flexCenter}`}  src={homewifi} alt={"homewifi"}/>
+      </div>
+    </div>
+     
+      
 
       {/* gradient start */}
       <div className="absolute z-[0] -left-1/2 top-0 w-[100%] h-[100%] -rotate-12  bg-secondary opacity-30 filter blur-3xl" />

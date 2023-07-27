@@ -1,25 +1,42 @@
-import { stats } from '@/app/data'
+import { fetchSupabase } from '@/app/(pages)/dashboard/page'
 import styles from '@/app/style'
 import { FC } from 'react'
+import StatsCard from './StatsCard';
 
 interface StatsProps {
-  
+  data:  any[] | null
 }
 //make user stats    if user is sign in    how many question he answerd how many he has completed and his one year goal ?? 
-const Stats: FC<StatsProps> = ({}) => {
-  return  <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6 z-20`}>
-  {stats.map((stat) => (
-    <div key={stat.id} className={`flex-1 flex justify-start items-center flex-row m-3`} >
-      <h4 className="font-poppins font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] ">
-        {stat.value}
-      </h4>
-      <p className="font-poppins font-normal xs:text-[20.45px] text-[15.45px] xs:leading-[26.58px] leading-[21.58px]   uppercase ml-3">
-        {stat.title}
-      </p>
-    </div>
-  ))}
+const Stats: FC<StatsProps> = async ({}) => {
 
-</section>
+  const {data} = await fetchSupabase()
+
+ const dataNumber = data?.length ?? 0;
+
+  const answerdQuestion = dataNumber && dataNumber > 0 ? dataNumber : '13'
+
+
+  const isDoneQuestion = data?.filter((dat) => dat.isdone === true);
+
+  const completedTasks = isDoneQuestion?.length ?? 0;
+
+   const showCompletedTasks = completedTasks > 0 ? completedTasks : '2'
+
+ const dataOneYearGoal = data?.filter((dat) => dat.id_number === 1);
+
+ const yearlyGoal =
+ dataOneYearGoal && dataOneYearGoal.length > 0
+   ? dataOneYearGoal.map((item) => item.answer)
+   : ['Flying to the moon'];
+
+
+return (
+  <section className={`${styles.flexCenter} md:flex-row flex-col flex-wrap sm:mb-20 mb-6 z-20`}>
+    <StatsCard value={answerdQuestion} title={'Answered Questions'} />
+    <StatsCard value={showCompletedTasks} title={'Completed tasks'} />
+    <StatsCard value={yearlyGoal} title={'Yearly Goal'} />
+  </section>
+);
 }
 
 export default Stats
