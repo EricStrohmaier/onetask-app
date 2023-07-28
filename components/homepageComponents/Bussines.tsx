@@ -1,6 +1,3 @@
-
-import { features } from "@/app/data";
-
 import Button from "./LinkButton";
 import styles, { layout } from "@/app/style";
 
