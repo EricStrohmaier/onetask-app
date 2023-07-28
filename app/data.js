@@ -63,20 +63,20 @@ export const footerLinks = [
       links: [
         {
           name: "Help",
-          link: "/help/",
+          link: "/",
         },
       
         {
           name: "Suggestions",
-          link: "/suggestions/",
+          link: "/",
         },
         {
           name: "Blog",
-          link: "/blog/",
+          link: "/",
         },
         {
           name: "Newsletters",
-          link: "/newsletters/",
+          link: "/",
         },
       ],
     },
