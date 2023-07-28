@@ -17,7 +17,7 @@ const CardDeal = () => {
        By concentrating solely on one task during each block, you can work with greater efficiency and depth, resulting in higher-quality output.
       </p>
 
-      <Button style={`mt-10 bg-bluegray hover:scale-105`} title={"Read more"} href={"about/the-book"} />
+      <Button style={`mt-10 bg-bluegray hover:scale-105`} title={"Read more"} href={"/about/the-book"} />
     </div>
 
     <div

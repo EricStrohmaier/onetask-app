@@ -5,11 +5,7 @@ interface pageProps {
 }
 
 const page: FC<pageProps> = ({}) => {
-  return <div>
-    <div className=''>
-       the bookpage
-        </div>
-    </div>
+  return <div>How it works</div>
 }
 
 export default page

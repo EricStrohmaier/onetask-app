@@ -38,7 +38,7 @@ const Business = () =>  (
        The book emphasizes the following methods
       </p>
 
-      <Button title={"Read more"} href={"/about-the-book"} style="mt-10 bg-primary hover:scale-105" />
+      <Button title={"Read more"} href={"/about/the-book"} style="mt-10 bg-primary hover:scale-105" />
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>

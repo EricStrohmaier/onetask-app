@@ -12,7 +12,7 @@ export default async function Navbar() {
   return (
     <nav className="w-full flex justify-center border-b border-b-text/10 h-16">
         <div className="w-full  flex justify-between items-center p-3 text-md text-text">
-          <div className='font-bold text-2xl'>oneTask</div>
+          <Link href={'/'} className='font-bold text-2xl'>oneTask </Link>
           <div>
             {user ? (
               <div className="flex items-center">

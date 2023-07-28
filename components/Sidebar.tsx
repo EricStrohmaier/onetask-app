@@ -27,7 +27,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
         <div className="bg-text opacity-40 rounded-full h-[1px] w-full"></div>
           <SidebarLink src={edit} alt={'edit'} href={"/dashboard/questions"} tag={'Question'}/>
             <SidebarLink src={document} alt={'document'} href={"/dashboard/all"} tag={'Archive'}/>
-              <SidebarLink src={book} alt={'book'} href={"/dashboard/book"} tag={'The Book'}/>
+              <SidebarLink src={book} alt={'book'} href={"/about/the-book"} tag={'The Book'}/>
     </ul>
 
     <ul className="flex flex-col space-y-4 items-center">

@@ -8,6 +8,7 @@
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
+    "contentful": "^10.3.6",
     "encoding": "^0.1.13",
     "framer-motion": "^10.13.1",
     "next": "latest",
