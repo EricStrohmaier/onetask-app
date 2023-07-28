@@ -15,10 +15,7 @@ export default async function page() {
     title,
   }));
 
-
   const dataArray = data ?? [];
-
-
 
   // Map over the 'dataArray' and create cards for each item
   const cards = dataArray.map(({ id_number, answer }) => {

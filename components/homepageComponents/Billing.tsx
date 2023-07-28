@@ -8,8 +8,8 @@ const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={`${layout.sectionImgReverse}`}>
     <div className={`w-full h-full relative z-[5] ${styles.flexCenter}`}>
-      <div className={`w-2/3 h-fit  bg-bluegray rounded-[120px] ${styles.flexCenter}`}>
-        <Image  className={`w-1/2 h-1/2   ${styles.flexCenter}`}  src={homewifi} alt={"homewifi"}/>
+      <div className={`w-2/3 h-2/3  bg-bluegray rounded-[120px] ${styles.flexCenter}`}>
+        <Image  className={`w-full h-full   ${styles.flexCenter}`}  src={homewifi} alt={"homewifi"}/>
       </div>
     </div>
      
