@@ -28,9 +28,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </div>
           <div className="flex items-center space-x-2">
             {user ? (
-              <LogoutButton />
+              <>
+                <LinkButton title={"Back"} href={"/"} style={`py-2 px-4 rounded-md no-underline ${styles.linkHover}`}/>
+                <LogoutButton />
+              </>
             ) : (
+              <>
+
              <LinkButton title={"Login"} href={"/login"} style={`py-2 px-4 rounded-md no-underline ${styles.linkHover}`}/>
+             </>
             )}
           </div>
         </div>

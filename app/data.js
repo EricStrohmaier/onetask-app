@@ -45,7 +45,7 @@ export const footerLinks = [
           link: "/about/",
         },
         {
-          name: "Author",
+          name: "The Book",
           link: "about/the-book/",
         },
         {
@@ -58,29 +58,6 @@ export const footerLinks = [
         },
       ],
     },
-    {
-      title: "Community",
-      links: [
-        {
-          name: "Help",
-          link: "/",
-        },
-      
-        {
-          name: "Suggestions",
-          link: "/",
-        },
-        {
-          name: "Blog",
-          link: "/",
-        },
-        {
-          name: "Newsletters",
-          link: "/",
-        },
-      ],
-    },
-   
   ];
   
   export const socialMedia = [
