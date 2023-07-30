@@ -21,7 +21,7 @@ export default async function Navbar() {
                 href="/dashboard"
                 className={`py-2 px-4 mx-2 rounded-md no-underline ${styles.linkHover}`}
               >
-                Dahsboard
+                Dashboard
               </Link>
               <LogoutButton/>
               </div>

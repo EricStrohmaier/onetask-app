@@ -27,7 +27,7 @@ questions:[
         {
             id: 5,
             title: "Right Now",
-            question:"Based on my Daily Goal, whats the one thing I can start doing right now to accive my goal?",
+            question:"Based on my Daily Goal, whats the one thing I can start doing right now to achieve my goal?",
             answer: "",
         },
     ]
